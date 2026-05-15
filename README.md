@@ -372,7 +372,7 @@ CMD ["node", "server.js"]
 
 ## 📄 License
 
-MIT © 2024 AccessCore
+MIT © 2026 AccessCore
 
 ---
 
