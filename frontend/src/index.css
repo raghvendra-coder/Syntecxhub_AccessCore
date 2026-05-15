@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 226 100% 64%; /* Premium Electric Blue */
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+
+    --radius: 1.25rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border/40;
+  }
+  body {
+    @apply bg-[#030303] text-foreground selection:bg-primary/30 antialiased;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    letter-spacing: -0.01em;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight leading-tight;
+  }
+}
+
+/* --- Neo-Enterprise Utilities --- */
+
+.font-display {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+}
+
+.glass-surface {
+  @apply bg-white/[0.02] backdrop-blur-[24px] border border-white/[0.05] shadow-[0_8px_32px_0_rgba(0,0,0,0.37)];
+}
+
+.glass-card {
+  @apply bg-white/[0.01] backdrop-blur-xl border border-white/[0.04] shadow-2xl transition-all duration-500 ease-in-out;
+}
+
+.glass-card:hover {
+  @apply border-white/[0.08] bg-white/[0.02] -translate-y-1;
+}
+
+.gradient-text {
+  @apply bg-gradient-to-br from-white via-white/90 to-white/40 bg-clip-text text-transparent;
+}
+
+.blue-glow {
+  box-shadow: 0 0 50px -12px rgba(41, 82, 255, 0.4);
+}
+
+.inner-glow {
+  box-shadow: inset 0 0 20px 0 rgba(255, 255, 255, 0.02);
+}
+
+/* --- Cinematic Backgrounds --- */
+
+.mesh-gradient {
+  background: 
+    radial-gradient(at 0% 0%, hsla(226,100%,64%,0.1) 0, transparent 50%), 
+    radial-gradient(at 100% 0%, hsla(280,100%,64%,0.05) 0, transparent 50%),
+    radial-gradient(at 100% 100%, hsla(226,100%,64%,0.1) 0, transparent 50%),
+    radial-gradient(at 0% 100%, hsla(226,100%,64%,0.05) 0, transparent 50%);
+}
+
+.ambient-light {
+  @apply absolute pointer-events-none;
+  background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+  filter: blur(140px);
+  opacity: 0.15;
+}
+
+/* --- Premium Buttons --- */
+
+.btn-enterprise {
+  @apply relative inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-2xl bg-white text-black font-bold text-sm transition-all duration-500 hover:scale-[1.02] active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.1)] overflow-hidden;
+}
+
+.btn-enterprise::after {
+  content: '';
+  @apply absolute inset-0 bg-primary opacity-0 transition-opacity duration-500;
+}
+
+.btn-enterprise:hover::after {
+  @apply opacity-10;
+}
+
+.btn-secondary-glass {
+  @apply inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-2xl glass-surface text-white font-bold text-sm transition-all duration-500 hover:bg-white/[0.05];
+}
+
+/* --- Custom Scrollbar --- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-white/10 rounded-full hover:bg-white/20 transition-colors;
+}
+
+/* --- Animations --- */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.noise-bg {
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.05;
+}
