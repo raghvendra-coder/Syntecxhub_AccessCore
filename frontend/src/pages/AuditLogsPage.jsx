@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { 
   Shield, Search, Filter, ArrowDown, 
   MoreVertical, AlertTriangle, 
-  Key, Layers, Clock, Download, RefreshCw, Activity, Zap
+  Key, Layers, Clock, Download, RefreshCw, Activity, Zap, Settings
 } from 'lucide-react';
 import { cn } from '../utils/cn';
 import toast from 'react-hot-toast';
